@@ -1,0 +1,24 @@
+﻿@model OnlineLibrary.Data.EF.Data.Book
+    <body>
+        <h1>Приятного чтения</h1>
+        @if (@Model.CoverImageName == "not_found")
+        {
+            <img src="~/ClientImages/BookImages/Not_found/not_found.jpg" class="card-img-top" style="max-width: 540px">
+        }
+        else
+        {
+            <img src="~/ClientImages/BookImages/@Model.CoverImageName" style="max-width: 540px" class="card-img-top">
+        }       
+        <h4 class="title">Книга: @Model.Name</h4>
+        <h5 class="title">Автор: @Model.Author</h5>
+        <p class="title">Каткое описание: @Model.ShortDescription</p>
+        <h5 class="title">Год издания: @Model.ReleaseYear</h5>
+        <p>Содержание: @Model.Body</p>
+    </body>
+    <a href="https://localhost:44378/book/edit/@Model.Id" class="btn btn-primary btn btn-block">Редактировать</a>
+<br />
+    <a href="https://localhost:44378/book/delete/@Model.Id" class="btn btn-primary btn btn-block">Удалить</a>
+
+
+
+

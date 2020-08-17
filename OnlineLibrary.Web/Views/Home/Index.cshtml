@@ -1,0 +1,25 @@
+﻿@model List<OnlineLibrary.Data.EF.Data.Book>
+<h3>Книги</h3>
+<div class="card-columns">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <div class="card" style="width: 18rem;">            
+            <div class="card-body">
+                @if (@Model[i].CoverImageName == "not_found")
+                {
+                    <img src="~/ClientImages/BookImages/Not_found/not_found.jpg" class="card-img-top">
+                }
+                else
+                {
+                    <img src="~/ClientImages/BookImages/@Model[i].CoverImageName" style="max-width: 540px" class="card-img-top">
+                }
+                <h4 class="card-title">Книга: @Model[i].Name</h4>
+                <h5 class="card-title">Год издания: @Model[i].ReleaseYear</h5>
+                <h5 class="card-title">Автор: @Model[i].Author</h5>
+                <p class="card-title">Краткое описание: @Model[i].ShortDescription</p>
+                <a href="https://localhost:44378/book/@Model[i].Id" class="btn btn-primary btn btn-block">Читать книгу</a>
+            </div>
+        </div>
+    }
+</div>
+
